@@ -1,0 +1,74 @@
+@font-face {
+    font-family: VT323;
+    src: url("fonts/VT323-Regular.ttf");
+  }
+
+.game-container{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.hide{
+    display: none;
+}
+
+.game-button{
+    margin: 5px;
+    font-family: 'VT323', cursive;
+    border: 1px solid #333333;
+    background: transparent;
+    font-size: 40px;
+    color: #ffffff;
+    padding: 10px 50px;
+    border-radius: 70px;
+    cursor: pointer;
+    outline: none;
+    transition: all .2s;
+}
+
+.game-button.fab{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 5px;
+    box-sizing: content-box;
+    width: 40px;
+    height: 40px;
+}
+
+.game-button.fab.top{
+    position: absolute;
+    right: 10px;
+    bottom: unset;
+    top: 10px;
+}
+
+.game-button.play{
+    color: #00ff00;
+    padding: 20px 80px;
+    border: 1px solid #00ff00;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, 20%);
+}
+
+.game-button:hover, .game-button:active{
+    border-color: #ffffff;
+    box-shadow: 0px 0px 20px 1px #ffffff;
+    background: #888888;
+}
+
+.game-button:active{
+    box-shadow: 0px 0px 20px 1px #ffffff;
+    background: #ffffff;
+    color: #333333;
+}
+
+.resume-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-130%, 20%);
+}
