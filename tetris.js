@@ -166,6 +166,7 @@ class Grid{
     RemoveFilledRow () {
         let numRow = 0;
         let rowComplete = false;
+        let emptyRows = [];
         for(let i = 0; i < this.nRows; i++){
             rowComplete = true;
             for(let j = 0; j < this.maxCols; j++){
@@ -178,9 +179,35 @@ class Grid{
             if(rowComplete){
                 numRow ++;
                 this.EmptyRow(i);
+                emptyRows.push(i);
             }
         }
+        if(emptyRows.length != 0){
+            this.FillEmptyRows(emptyRows);
+        }
         return numRow;
+    }
+
+    FillEmptyRows (emptyRows) {
+        emptyRows.sort((a, b) => { return a - b; });
+        for(let i = 0; i < emptyRows.length; i++){
+            let j = emptyRows[i];
+            for(; j >= 0; j--){
+                let moved = false;
+                for(let k = 0; k < this.maxCols; k++){        
+                    let entry = this.hasTetrisAt(new Vec2(k, j));
+                    if(entry.filled){
+                        moved = true;
+                        this.removeTetris(entry.tetris);
+                        entry.tetris.Pos.Y += 1;
+                        this.addTetris(entry.tetris);
+                    }
+                }
+                if(!moved){
+                    break;
+                }
+            }
+        }
     }
 
     EmptyRow (i) {
